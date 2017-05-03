@@ -172,6 +172,49 @@ namespace Lab5_Hotel
             MessageBox.Show("Клиенты греческих отелей: \n" + s);
         }
 
+     
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           //Отели с двумя и более клиентами (отель, город, количество клиентов)
+             dataGridView1.DataSource = from r in db.Hotels
+                                       where r.Client.Count() >= 2
+                                       orderby r.hname, r.hcity
+                                       select new
+                                       {
+                                           r.hname,
+                                           r.hcity,
+                                           r.Client.Count
+                                       }; 
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = from h in db.Hotels
+                                       select new
+                                       {
+                                           h.hname,
+                                           h.hcountry,
+                                           h.hcity,
+                                           h.stars
+                                       }; 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = from c in db.Client
+                                       select new
+                                       {
+                                           c.fio,
+                                           c.num,
+                                           c.age,
+                                           c.country,
+                                           c.ofhotel,
+                                           c.id
+                                       }; 
+        }
+
  
 
 
