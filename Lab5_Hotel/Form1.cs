@@ -142,10 +142,10 @@ namespace Lab5_Hotel
         //  Queries with filter
         private void button1_Click(object sender, EventArgs e)
         {
-
-            IQueryable<Hotels> spainhotels = from c in db.Hotels
-                                             where c.hcountry == "Spain" && (c.stars == 4 || c.stars == 5)
-                                         select c;
+            IEnumerable<Hotels> spainhotels = 
+                from c in db.Hotels
+                where c.hcountry == "Spain" && (c.stars == 4 || c.stars == 5)
+                select c;
             string s = "";
             foreach (Hotels hotels in spainhotels)
             {
@@ -157,7 +157,19 @@ namespace Lab5_Hotel
 
         private void button2_Click(object sender, EventArgs e)
         {
+            IQueryable<Client> greeceClientQuery =
+            from client in db.Client
+            join hotel in db.Hotels on client.ofhotel equals hotel.hname
+            where hotel.hcountry == "Greece"
+            select client;
 
+            string s = "";
+            foreach (Client clients in greeceClientQuery)
+            {
+                s += "\nФИО: " + clients.fio + ", Номер: " + clients.num + ", Возраст: " + clients.age + ", Гражданство: " + clients.country + ", Отель: " + clients.ofhotel;
+
+            }
+            MessageBox.Show("Клиенты греческих отелей: \n" + s);
         }
 
  
