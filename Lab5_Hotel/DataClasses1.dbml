@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LR5" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NADYA-PC;Initial Catalog=LR5;Integrated Security=True" SettingsObjectName="Lab5_Hotel.Properties.Settings" SettingsPropertyName="LR5ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Client" Member="Client">
+    <Type Name="Client">
+      <Column Name="fio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ofhotel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Client_Client" Member="Client2" ThisKey="id" OtherKey="id" Type="Client" Cardinality="One" />
+      <Association Name="Client_Client" Member="Client1" ThisKey="id" OtherKey="id" Type="Client" IsForeignKey="true" />
+      <Association Name="Hotels_Client" Member="Hotels" ThisKey="ofhotel" OtherKey="hname" Type="Hotels" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hotels" Member="Hotels">
+    <Type Name="Hotels">
+      <Column Name="hname" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="hcountry" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="hcity" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="stars" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Hotels_Client" Member="Client" ThisKey="hname" OtherKey="ofhotel" Type="Client" />
+    </Type>
+  </Table>
+</Database>

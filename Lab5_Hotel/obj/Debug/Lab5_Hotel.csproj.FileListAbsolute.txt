@@ -1,0 +1,9 @@
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\bin\Debug\Lab5_Hotel.exe.config
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\bin\Debug\Lab5_Hotel.exe
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\bin\Debug\Lab5_Hotel.pdb
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.csprojResolveAssemblyReference.cache
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.Properties.Resources.resources
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.csproj.GenerateResource.Cache
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.exe
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.pdb
+c:\users\nadya\documents\visual studio 2012\Projects\Lab5_Hotel\Lab5_Hotel\obj\Debug\Lab5_Hotel.Form1.resources
