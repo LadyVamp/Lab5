@@ -232,16 +232,9 @@ namespace Lab5_Hotel
 
             }
             MessageBox.Show("Клиенты, живущие в отелях, где нет французов: \n" + s);
-
-
-
-
         }
 
-       
-       
-
-        private void btnCreateXml_Click(object sender, EventArgs e)
+         private void btnCreateXml_Click(object sender, EventArgs e)
         {
             //  Выгрузка в XML
             var arr = db.Hotels;
@@ -255,7 +248,7 @@ namespace Lab5_Hotel
                         new XElement("stars", h.stars)));
                 foreach (var c in h.Client)
                 {
-                    doc.Root.Elements().Last().Add(new XElement("Client",
+                    doc.Root.Elements().Last().Add(new XElement("client",
                         new XAttribute("fio", c.fio),
                         new XAttribute("num", c.num),
                         new XAttribute("age", c.age),
@@ -265,28 +258,35 @@ namespace Lab5_Hotel
             }
             doc.Save("d:\\lab5.xml");
             MessageBox.Show("XML-файл сформирован! \n");
-
-            //var arr = db.roads;
-            //XDocument doc = new XDocument(new XElement("root"));
-            //foreach (var i in arr)
-            //{
-            //    doc.Root.Add(new XElement("road",
-            //            new XAttribute("src", i.src),
-            //            new XAttribute("dest", i.dest),
-            //            new XElement("cost", i.cost)));
-            //    foreach (var b in i.builders)
-            //    {
-            //        doc.Root.Elements().Last().Add(new XElement("builder",
-            //            new XAttribute("name", b.title),
-            //            new XAttribute("beg", b.year_beg),
-            //            new XAttribute("eend", b.year_end),
-            //            new XElement("per", b.period)));
-            //    }
-            //}
-            //doc.Save("c:\\abc.xml");
-
-
         }
+
+         private void btnReadXml_Click(object sender, EventArgs e)
+         {
+             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             //var query = from people in xdoc.Descendants("client")
+             //            select people.Value;
+             //string s = "";
+             //MessageBox.Show("отображение записей по условию: \n" + s);
+
+             var cln = 
+                 from client in
+                 XDocument.Load("d:\\lab5.xml").Descendants("client")
+                 where client.Element("fio").Value=="Li L."
+                 select new Client 
+                 {
+                    fio = client.Element("fio").Value.ToString(),
+                    num = (int) client.Attribute("num"),
+                    age = (int) client.Attribute("age"),
+                    country = client.Element("country").Value.ToString(),
+                    ofhotel = client.Element("ofhotel").Value.ToString()
+                 };
+
+             foreach (var client in cln)
+             {
+                 MessageBox.Show(client.fio + "\t" + client.num.ToString() + "\t"+ client.age.ToString() + "\t"+ client.country + "\t" + client.ofhotel);
+             }
+
+         }
 
  
 

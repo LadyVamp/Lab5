@@ -53,6 +53,7 @@
             this.btnAllHotels = new System.Windows.Forms.Button();
             this.btnAllClients = new System.Windows.Forms.Button();
             this.btnCreateXml = new System.Windows.Forms.Button();
+            this.btnReadXml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
@@ -218,7 +219,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(26, 366);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 23);
+            this.button3.Size = new System.Drawing.Size(196, 23);
             this.button3.TabIndex = 19;
             this.button3.Text = "Отели с двумя и более клиентами";
             this.button3.UseVisualStyleBackColor = true;
@@ -226,7 +227,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(253, 307);
+            this.button4.Location = new System.Drawing.Point(228, 307);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(264, 23);
             this.button4.TabIndex = 20;
@@ -236,7 +237,7 @@
             // 
             // btnAllHotels
             // 
-            this.btnAllHotels.Location = new System.Drawing.Point(253, 337);
+            this.btnAllHotels.Location = new System.Drawing.Point(228, 337);
             this.btnAllHotels.Name = "btnAllHotels";
             this.btnAllHotels.Size = new System.Drawing.Size(75, 23);
             this.btnAllHotels.TabIndex = 21;
@@ -246,7 +247,7 @@
             // 
             // btnAllClients
             // 
-            this.btnAllClients.Location = new System.Drawing.Point(351, 337);
+            this.btnAllClients.Location = new System.Drawing.Point(309, 337);
             this.btnAllClients.Name = "btnAllClients";
             this.btnAllClients.Size = new System.Drawing.Size(75, 23);
             this.btnAllClients.TabIndex = 22;
@@ -256,7 +257,7 @@
             // 
             // btnCreateXml
             // 
-            this.btnCreateXml.Location = new System.Drawing.Point(506, 366);
+            this.btnCreateXml.Location = new System.Drawing.Point(506, 307);
             this.btnCreateXml.Name = "btnCreateXml";
             this.btnCreateXml.Size = new System.Drawing.Size(125, 23);
             this.btnCreateXml.TabIndex = 23;
@@ -264,11 +265,22 @@
             this.btnCreateXml.UseVisualStyleBackColor = true;
             this.btnCreateXml.Click += new System.EventHandler(this.btnCreateXml_Click);
             // 
+            // btnReadXml
+            // 
+            this.btnReadXml.Location = new System.Drawing.Point(506, 336);
+            this.btnReadXml.Name = "btnReadXml";
+            this.btnReadXml.Size = new System.Drawing.Size(125, 23);
+            this.btnReadXml.TabIndex = 24;
+            this.btnReadXml.Text = "Чтение из XML";
+            this.btnReadXml.UseVisualStyleBackColor = true;
+            this.btnReadXml.Click += new System.EventHandler(this.btnReadXml_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 401);
+            this.ClientSize = new System.Drawing.Size(650, 401);
+            this.Controls.Add(this.btnReadXml);
             this.Controls.Add(this.btnCreateXml);
             this.Controls.Add(this.btnAllClients);
             this.Controls.Add(this.btnAllHotels);
@@ -327,6 +339,7 @@
         private System.Windows.Forms.Button btnAllHotels;
         private System.Windows.Forms.Button btnAllClients;
         private System.Windows.Forms.Button btnCreateXml;
+        private System.Windows.Forms.Button btnReadXml;
     }
 }
 
