@@ -166,7 +166,7 @@ namespace Lab5_Hotel
             string s = "";
             foreach (Client clients in greeceClientQuery)
             {
-                s += "\nФИО: " + clients.fio + ", Номер: " + clients.num + ", Возраст: " + clients.age + ", Гражданство: " + clients.country + ", Отель: " + clients.ofhotel;
+                s += "\nФИО: " + clients.fio + ", №: " + clients.num + ", Возраст: " + clients.age + ", Гражданство: " + clients.country + ", Отель: " + clients.ofhotel;
 
             }
             MessageBox.Show("Клиенты греческих отелей: \n" + s);
@@ -213,6 +213,28 @@ namespace Lab5_Hotel
                                            c.ofhotel,
                                            c.id
                                        }; 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Клиенты, живущие в отелях, где нет французов
+            IQueryable<Client> noFrenchman =
+            from client in db.Client
+            join hotel in db.Hotels on client.ofhotel equals hotel.hname
+            where client.country != "France" && hotel.hcountry != "Greece"
+            select client;
+
+            string s = "";
+            foreach (Client clients in noFrenchman)
+            {
+                s += "\nФИО: " + clients.fio + ", №: " + clients.num + ", Возраст: " + clients.age + ", Гражданство: " + clients.country + ", Отель: " + clients.ofhotel;
+
+            }
+            MessageBox.Show("Клиенты, живущие в отелях, где нет французов: \n" + s);
+
+
+
+
         }
 
  
