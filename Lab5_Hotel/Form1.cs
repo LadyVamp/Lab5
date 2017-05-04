@@ -262,29 +262,32 @@ namespace Lab5_Hotel
 
          private void btnReadXml_Click(object sender, EventArgs e)
          {
-             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
-             //var query = from people in xdoc.Descendants("client")
-             //            select people.Value;
-             //string s = "";
-             //MessageBox.Show("отображение записей по условию: \n" + s);
+             //1 строка
+             XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             MessageBox.Show(xdoc.Element("root").Element("hotel").Element("stars").Value);
+             //MessageBox.Show(xdoc.Element("root").Element("hotel").Element("client").Value);
+             // /1строка
 
-             var cln = 
-                 from client in
-                 XDocument.Load("d:\\lab5.xml").Descendants("client")
-                 where client.Element("fio").Value=="Li L."
-                 select new Client 
-                 {
-                    fio = client.Element("fio").Value.ToString(),
-                    num = (int) client.Attribute("num"),
-                    age = (int) client.Attribute("age"),
-                    country = client.Element("country").Value.ToString(),
-                    ofhotel = client.Element("ofhotel").Value.ToString()
-                 };
+             //var cln =
+             //    from client in
+             //        XDocument.Load("d:\\lab5.xml").Descendants("clients")
+             //    where client.Element("country").Value == "Russia"
+             //    select new Client
+             //    {
+             //        fio = client.Element("fio").Value.ToString(),
+             //        num = (int)client.Attribute("num"),
+             //        age = (int)client.Attribute("age"),
+             //        country = client.Element("country").Value.ToString(),
+             //        ofhotel = client.Element("ofhotel").Value.ToString()
+             //    };
 
-             foreach (var client in cln)
-             {
-                 MessageBox.Show(client.fio + "\t" + client.num.ToString() + "\t"+ client.age.ToString() + "\t"+ client.country + "\t" + client.ofhotel);
-             }
+             //foreach (var client in cln)
+             //{
+             //    MessageBox.Show(client.fio + "\t" + client.num.ToString() + "\t" + client.age.ToString() + "\t" + client.country + "\t" + client.ofhotel);
+             //}
+
+
+
 
          }
 
