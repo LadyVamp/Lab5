@@ -236,6 +236,28 @@ namespace Lab5_Hotel
 
          private void btnCreateXml_Click(object sender, EventArgs e)
         {
+            ////  Выгрузка в XML
+            //var arr = db.Hotels;
+            //XDocument doc = new XDocument(new XElement("root"));
+            //foreach (var h in arr)
+            //{
+            //    doc.Root.Add(new XElement("hotel",
+            //            new XAttribute("hname", h.hname),
+            //            new XAttribute("hcountry", h.hcountry),
+            //            new XAttribute("hcity", h.hcity),
+            //            new XElement("stars", h.stars)));
+            //    foreach (var c in h.Client)
+            //    {
+            //        doc.Root.Elements().Last().Add(new XElement("client",
+            //            new XAttribute("fio", c.fio),
+            //            new XAttribute("num", c.num),
+            //            new XAttribute("age", c.age),
+            //            new XAttribute("country", c.country),
+            //            new XAttribute("ofhotel", c.ofhotel)));
+            //    }
+            //}
+            //doc.Save("d:\\lab5.xml");
+            //MessageBox.Show("XML-файл сформирован! \n");
             //  Выгрузка в XML
             var arr = db.Hotels;
             XDocument doc = new XDocument(new XElement("root"));
@@ -249,46 +271,54 @@ namespace Lab5_Hotel
                 foreach (var c in h.Client)
                 {
                     doc.Root.Elements().Last().Add(new XElement("client",
-                        new XAttribute("fio", c.fio),
-                        new XAttribute("num", c.num),
-                        new XAttribute("age", c.age),
-                        new XAttribute("country", c.country),
-                        new XAttribute("ofhotel", c.ofhotel)));
+                        new XElement("fio", c.fio),
+                        new XElement("num", c.num),
+                        new XElement("age", c.age),
+                        new XElement("country", c.country),
+                        new XElement("ofhotel", c.ofhotel)));
                 }
             }
             doc.Save("d:\\lab5.xml");
             MessageBox.Show("XML-файл сформирован! \n");
+
+
         }
 
          private void btnReadXml_Click(object sender, EventArgs e)
          {
-             //1 строка
+             ////1 строка
+             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             //MessageBox.Show(xdoc.Element("root").Element("hotel").Element("client").Element("fio").Value);
+             //// /1строка
+
              XDocument xdoc = XDocument.Load("d:\\lab5.xml");
-             MessageBox.Show(xdoc.Element("root").Element("hotel").Element("stars").Value);
-             //MessageBox.Show(xdoc.Element("root").Element("hotel").Element("client").Value);
-             // /1строка
+             var xmlList = (from client in xdoc.Descendants("client")
+                            select new
+                            {
+                                fio = client.Descendants("fio").SingleOrDefault(),
+                                num = client.Descendants("num").SingleOrDefault(),
+                                age = client.Descendants("age").SingleOrDefault(),
+                                country = client.Descendants("country").SingleOrDefault(),
+                                ofhotel = client.Descendants("ofhotel").SingleOrDefault()
+                            }).ToList();
 
-             //var cln =
-             //    from client in
-             //        XDocument.Load("d:\\lab5.xml").Descendants("clients")
-             //    where client.Element("country").Value == "Russia"
-             //    select new Client
-             //    {
-             //        fio = client.Element("fio").Value.ToString(),
-             //        num = (int)client.Attribute("num"),
-             //        age = (int)client.Attribute("age"),
-             //        country = client.Element("country").Value.ToString(),
-             //        ofhotel = client.Element("ofhotel").Value.ToString()
-             //    };
+             var clientList = (from item in xmlList
+                                select new
+                                {
+                                    fio = item.fio != null ? item.fio.Value : null,
+                                    num = item.num != null ? item.num.Value : null,
+                                    age = item.age != null ? item.age.Value : null,
+                                    country = item.country != null ? item.country.Value : null,
+                                    ofhotel = item.ofhotel != null ? item.ofhotel.Value : null
+                                });
 
-             //foreach (var client in cln)
-             //{
-             //    MessageBox.Show(client.fio + "\t" + client.num.ToString() + "\t" + client.age.ToString() + "\t" + client.country + "\t" + client.ofhotel);
-             //}
+             string s = "";
+             foreach (var client in clientList)
+             {
+                 s += "\nФИО: " + client.fio + ", №: " + client.num + ", Возраст: " + client.age + ", Гражданство: " + client.country + ", Отель: " + client.ofhotel;
+             }
 
-
-
-
+             MessageBox.Show("Чтение всех записей из XML: \n" + s);
          }
 
  
