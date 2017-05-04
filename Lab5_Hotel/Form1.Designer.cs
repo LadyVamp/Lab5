@@ -52,6 +52,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btnAllHotels = new System.Windows.Forms.Button();
             this.btnAllClients = new System.Windows.Forms.Button();
+            this.btnCreateXml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
@@ -72,7 +73,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(30, 66);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(633, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(601, 220);
             this.dataGridView1.TabIndex = 1;
             // 
             // txtFio
@@ -205,7 +206,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(26, 349);
+            this.button2.Location = new System.Drawing.Point(26, 336);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(196, 23);
             this.button2.TabIndex = 18;
@@ -215,7 +216,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(245, 307);
+            this.button3.Location = new System.Drawing.Point(26, 366);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 23);
             this.button3.TabIndex = 19;
@@ -225,7 +226,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(245, 349);
+            this.button4.Location = new System.Drawing.Point(253, 307);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(264, 23);
             this.button4.TabIndex = 20;
@@ -235,7 +236,7 @@
             // 
             // btnAllHotels
             // 
-            this.btnAllHotels.Location = new System.Drawing.Point(588, 307);
+            this.btnAllHotels.Location = new System.Drawing.Point(253, 337);
             this.btnAllHotels.Name = "btnAllHotels";
             this.btnAllHotels.Size = new System.Drawing.Size(75, 23);
             this.btnAllHotels.TabIndex = 21;
@@ -245,7 +246,7 @@
             // 
             // btnAllClients
             // 
-            this.btnAllClients.Location = new System.Drawing.Point(588, 349);
+            this.btnAllClients.Location = new System.Drawing.Point(351, 337);
             this.btnAllClients.Name = "btnAllClients";
             this.btnAllClients.Size = new System.Drawing.Size(75, 23);
             this.btnAllClients.TabIndex = 22;
@@ -253,11 +254,22 @@
             this.btnAllClients.UseVisualStyleBackColor = true;
             this.btnAllClients.Click += new System.EventHandler(this.button6_Click);
             // 
+            // btnCreateXml
+            // 
+            this.btnCreateXml.Location = new System.Drawing.Point(506, 366);
+            this.btnCreateXml.Name = "btnCreateXml";
+            this.btnCreateXml.Size = new System.Drawing.Size(125, 23);
+            this.btnCreateXml.TabIndex = 23;
+            this.btnCreateXml.Text = "Сформировать XML";
+            this.btnCreateXml.UseVisualStyleBackColor = true;
+            this.btnCreateXml.Click += new System.EventHandler(this.btnCreateXml_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 398);
+            this.ClientSize = new System.Drawing.Size(657, 401);
+            this.Controls.Add(this.btnCreateXml);
             this.Controls.Add(this.btnAllClients);
             this.Controls.Add(this.btnAllHotels);
             this.Controls.Add(this.button4);
@@ -314,6 +326,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnAllHotels;
         private System.Windows.Forms.Button btnAllClients;
+        private System.Windows.Forms.Button btnCreateXml;
     }
 }
 

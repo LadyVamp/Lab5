@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace Lab5_Hotel
@@ -19,7 +20,6 @@ namespace Lab5_Hotel
         SqlCommand cmd;
         SqlDataAdapter adapt;
      
-        
         int ID = 0;
         int Num = 0;
         int Age = 0;
@@ -222,6 +222,7 @@ namespace Lab5_Hotel
             from client in db.Client
             join hotel in db.Hotels on client.ofhotel equals hotel.hname
             where client.country != "France" && hotel.hcountry != "Greece"
+            orderby client.ofhotel
             select client;
 
             string s = "";
@@ -233,6 +234,56 @@ namespace Lab5_Hotel
             MessageBox.Show("Клиенты, живущие в отелях, где нет французов: \n" + s);
 
 
+
+
+        }
+
+       
+       
+
+        private void btnCreateXml_Click(object sender, EventArgs e)
+        {
+            //  Выгрузка в XML
+            var arr = db.Hotels;
+            XDocument doc = new XDocument(new XElement("root"));
+            foreach (var h in arr)
+            {
+                doc.Root.Add(new XElement("hotel",
+                        new XAttribute("hname", h.hname),
+                        new XAttribute("hcountry", h.hcountry),
+                        new XAttribute("hcity", h.hcity),
+                        new XElement("stars", h.stars)));
+                foreach (var c in h.Client)
+                {
+                    doc.Root.Elements().Last().Add(new XElement("Client",
+                        new XAttribute("fio", c.fio),
+                        new XAttribute("num", c.num),
+                        new XAttribute("age", c.age),
+                        new XAttribute("country", c.country),
+                        new XAttribute("ofhotel", c.ofhotel)));
+                }
+            }
+            doc.Save("d:\\lab5.xml");
+            MessageBox.Show("XML-файл сформирован! \n");
+
+            //var arr = db.roads;
+            //XDocument doc = new XDocument(new XElement("root"));
+            //foreach (var i in arr)
+            //{
+            //    doc.Root.Add(new XElement("road",
+            //            new XAttribute("src", i.src),
+            //            new XAttribute("dest", i.dest),
+            //            new XElement("cost", i.cost)));
+            //    foreach (var b in i.builders)
+            //    {
+            //        doc.Root.Elements().Last().Add(new XElement("builder",
+            //            new XAttribute("name", b.title),
+            //            new XAttribute("beg", b.year_beg),
+            //            new XAttribute("eend", b.year_end),
+            //            new XElement("per", b.period)));
+            //    }
+            //}
+            //doc.Save("c:\\abc.xml");
 
 
         }
