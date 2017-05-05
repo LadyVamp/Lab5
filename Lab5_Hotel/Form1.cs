@@ -236,28 +236,6 @@ namespace Lab5_Hotel
 
          private void btnCreateXml_Click(object sender, EventArgs e)
         {
-            ////  Выгрузка в XML
-            //var arr = db.Hotels;
-            //XDocument doc = new XDocument(new XElement("root"));
-            //foreach (var h in arr)
-            //{
-            //    doc.Root.Add(new XElement("hotel",
-            //            new XAttribute("hname", h.hname),
-            //            new XAttribute("hcountry", h.hcountry),
-            //            new XAttribute("hcity", h.hcity),
-            //            new XElement("stars", h.stars)));
-            //    foreach (var c in h.Client)
-            //    {
-            //        doc.Root.Elements().Last().Add(new XElement("client",
-            //            new XAttribute("fio", c.fio),
-            //            new XAttribute("num", c.num),
-            //            new XAttribute("age", c.age),
-            //            new XAttribute("country", c.country),
-            //            new XAttribute("ofhotel", c.ofhotel)));
-            //    }
-            //}
-            //doc.Save("d:\\lab5.xml");
-            //MessageBox.Show("XML-файл сформирован! \n");
             //  Выгрузка в XML
             var arr = db.Hotels;
             XDocument doc = new XDocument(new XElement("root"));
@@ -280,12 +258,12 @@ namespace Lab5_Hotel
             }
             doc.Save("d:\\lab5.xml");
             MessageBox.Show("XML-файл сформирован! \n");
-
-
         }
 
          private void btnReadXml_Click(object sender, EventArgs e)
          {
+             //Отображение записей по условию
+             
              ////1 строка
              //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
              //MessageBox.Show(xdoc.Element("root").Element("hotel").Element("client").Element("fio").Value);
@@ -318,8 +296,94 @@ namespace Lab5_Hotel
                  s += "\nФИО: " + client.fio + ", №: " + client.num + ", Возраст: " + client.age + ", Гражданство: " + client.country + ", Отель: " + client.ofhotel;
              }
 
-             MessageBox.Show("Чтение всех записей из XML: \n" + s);
+             MessageBox.Show("Чтение всех записей из XML \n" + "Все клиенты: \n" + s);
          }
+
+         private void btnAddXmlElement_Click(object sender, EventArgs e)
+         {
+             //создание элементов и атрибутов
+
+            // <?xml version="1.0"?>
+            //<PLAY>
+            //    <TITLE>The Tragedy of Hamlet, Prince of Denmark</TITLE>
+            //    <!—XML удален для ясности—>
+            //    <PERSONAE>
+            //        <TITLE>Dramatis Personae</TITLE>
+            //        <PERSONA>CLAUDIUS, king of Denmark.</PERSONA>
+            //        <PERSONA>HAMLET, son to the late king, and nephew to the present king.</PERSONA>
+            //    </PERSONAE>
+            //</PLAY>
+
+             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             //XElement xe = new XElement("PERSONA", "Bill Evjen, king of Denmark");
+             //xdoc.Element("PLAY").Element("PERSONAE").Add(xe);
+             //var query = from people in xdoc.Descendants("PERSONA")
+             //            select people.Value;
+             //Console.WriteLine("Найдено {0} персонажей", query.Count());
+             //Console.WriteLine();
+             //foreach (var item in query)
+             //{
+             //    Console.WriteLine(item);
+             //}
+
+             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             //XElement xe = new XElement("fio", "Popov P.");
+             //xdoc.Element("hotel").Element("client").Add(xe);
+             //var query = from people in xdoc.Descendants("fio")
+             //            select people.Value;
+             //Console.WriteLine("Найдено {0} персонажей", query.Count());
+             //Console.WriteLine();
+             //foreach (var item in query)
+             //{
+             //    Console.WriteLine(item);
+             //}
+
+         }
+
+         private void btnClientsOfAttica_Click(object sender, EventArgs e)
+         {
+             // по указанному отелю список его клиентов
+             XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             var xmlList = (from client in xdoc.Descendants("client")
+                            where client.Element("ofhotel").Value == "Attica"
+                            select new
+                            {
+                                fio = client.Descendants("fio").SingleOrDefault(),
+                                num = client.Descendants("num").SingleOrDefault(),
+                                age = client.Descendants("age").SingleOrDefault(),
+                                country = client.Descendants("country").SingleOrDefault(),
+                                ofhotel = client.Descendants("ofhotel").SingleOrDefault()
+                            }).ToList();
+
+             var clientList = (from item in xmlList
+                               select new
+                               {
+                                   fio = item.fio != null ? item.fio.Value : null,
+                                   num = item.num != null ? item.num.Value : null,
+                                   age = item.age != null ? item.age.Value : null,
+                                   country = item.country != null ? item.country.Value : null,
+                                   ofhotel = item.ofhotel != null ? item.ofhotel.Value : null
+                               });
+
+             string s = "";
+             foreach (var client in clientList)
+             {
+                 s += "\nФИО: " + client.fio + ", №: " + client.num + ", Возраст: " + client.age + ", Гражданство: " + client.country + ", Отель: " + client.ofhotel;
+             }
+
+             MessageBox.Show("По указанному отелю список его клиентов \n" + "Клиенты отеля Attica: \n" + s);
+         }
+
+ 
+
+       
+      
+
+        // добавление, удаление и редактирование клиента отеля,
+
+
+        // города и количество отелей в каждом.
+
 
  
 

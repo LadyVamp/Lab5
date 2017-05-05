@@ -54,14 +54,21 @@
             this.btnAllClients = new System.Windows.Forms.Button();
             this.btnCreateXml = new System.Windows.Forms.Button();
             this.btnReadXml = new System.Windows.Forms.Button();
+            this.btnAddXmlElement = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnClientsOfAttica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(475, 4);
+            this.btnInsert.Location = new System.Drawing.Point(460, 19);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 0;
@@ -72,14 +79,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 66);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 94);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(601, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 192);
             this.dataGridView1.TabIndex = 1;
             // 
             // txtFio
             // 
-            this.txtFio.Location = new System.Drawing.Point(67, 11);
+            this.txtFio.Location = new System.Drawing.Point(52, 26);
             this.txtFio.Name = "txtFio";
             this.txtFio.Size = new System.Drawing.Size(100, 20);
             this.txtFio.TabIndex = 2;
@@ -87,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 14);
+            this.label1.Location = new System.Drawing.Point(12, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 5;
@@ -96,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 43);
+            this.label2.Location = new System.Drawing.Point(12, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
@@ -104,7 +111,7 @@
             // 
             // txtNum
             // 
-            this.txtNum.Location = new System.Drawing.Point(67, 40);
+            this.txtNum.Location = new System.Drawing.Point(52, 55);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(65, 20);
             this.txtNum.TabIndex = 6;
@@ -112,7 +119,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(173, 43);
+            this.label3.Location = new System.Drawing.Point(158, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 11;
@@ -120,7 +127,7 @@
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(253, 40);
+            this.txtCountry.Location = new System.Drawing.Point(238, 55);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(100, 20);
             this.txtCountry.TabIndex = 10;
@@ -128,7 +135,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(173, 11);
+            this.label4.Location = new System.Drawing.Point(158, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 9;
@@ -136,7 +143,7 @@
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(228, 8);
+            this.txtAge.Location = new System.Drawing.Point(213, 23);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(48, 20);
             this.txtAge.TabIndex = 8;
@@ -144,7 +151,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(307, 11);
+            this.label8.Location = new System.Drawing.Point(292, 23);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 13;
@@ -152,7 +159,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(475, 35);
+            this.btnUpdate.Location = new System.Drawing.Point(460, 50);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 14;
@@ -162,7 +169,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(556, 4);
+            this.btnDelete.Location = new System.Drawing.Point(541, 19);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 15;
@@ -175,7 +182,7 @@
             this.cmbOfhotel.DataSource = this.clientBindingSource;
             this.cmbOfhotel.DisplayMember = "ofhotel";
             this.cmbOfhotel.FormattingEnabled = true;
-            this.cmbOfhotel.Location = new System.Drawing.Point(351, 8);
+            this.cmbOfhotel.Location = new System.Drawing.Point(336, 23);
             this.cmbOfhotel.Name = "cmbOfhotel";
             this.cmbOfhotel.Size = new System.Drawing.Size(100, 21);
             this.cmbOfhotel.TabIndex = 16;
@@ -257,7 +264,7 @@
             // 
             // btnCreateXml
             // 
-            this.btnCreateXml.Location = new System.Drawing.Point(506, 307);
+            this.btnCreateXml.Location = new System.Drawing.Point(12, 14);
             this.btnCreateXml.Name = "btnCreateXml";
             this.btnCreateXml.Size = new System.Drawing.Size(125, 23);
             this.btnCreateXml.TabIndex = 23;
@@ -267,7 +274,7 @@
             // 
             // btnReadXml
             // 
-            this.btnReadXml.Location = new System.Drawing.Point(506, 336);
+            this.btnReadXml.Location = new System.Drawing.Point(12, 43);
             this.btnReadXml.Name = "btnReadXml";
             this.btnReadXml.Size = new System.Drawing.Size(125, 23);
             this.btnReadXml.TabIndex = 24;
@@ -275,41 +282,95 @@
             this.btnReadXml.UseVisualStyleBackColor = true;
             this.btnReadXml.Click += new System.EventHandler(this.btnReadXml_Click);
             // 
+            // btnAddXmlElement
+            // 
+            this.btnAddXmlElement.Location = new System.Drawing.Point(12, 99);
+            this.btnAddXmlElement.Name = "btnAddXmlElement";
+            this.btnAddXmlElement.Size = new System.Drawing.Size(125, 23);
+            this.btnAddXmlElement.TabIndex = 25;
+            this.btnAddXmlElement.Text = "Добавить элемент";
+            this.btnAddXmlElement.UseVisualStyleBackColor = true;
+            this.btnAddXmlElement.Click += new System.EventHandler(this.btnAddXmlElement_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(13, 292);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(487, 107);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтры";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnInsert);
+            this.groupBox2.Controls.Add(this.txtFio);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtNum);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtAge);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtCountry);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.cmbOfhotel);
+            this.groupBox2.Controls.Add(this.btnUpdate);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Location = new System.Drawing.Point(13, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(636, 84);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "CRUD";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnClientsOfAttica);
+            this.groupBox3.Controls.Add(this.btnAddXmlElement);
+            this.groupBox3.Controls.Add(this.btnReadXml);
+            this.groupBox3.Controls.Add(this.btnCreateXml);
+            this.groupBox3.Location = new System.Drawing.Point(506, 293);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(143, 144);
+            this.groupBox3.TabIndex = 28;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "XML";
+            // 
+            // btnClientsOfAttica
+            // 
+            this.btnClientsOfAttica.Location = new System.Drawing.Point(12, 70);
+            this.btnClientsOfAttica.Name = "btnClientsOfAttica";
+            this.btnClientsOfAttica.Size = new System.Drawing.Size(125, 23);
+            this.btnClientsOfAttica.TabIndex = 26;
+            this.btnClientsOfAttica.Text = "Клиенты отеля Attica";
+            this.btnClientsOfAttica.UseVisualStyleBackColor = true;
+            this.btnClientsOfAttica.Click += new System.EventHandler(this.btnClientsOfAttica_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 401);
-            this.Controls.Add(this.btnReadXml);
-            this.Controls.Add(this.btnCreateXml);
+            this.ClientSize = new System.Drawing.Size(661, 439);
             this.Controls.Add(this.btnAllClients);
             this.Controls.Add(this.btnAllHotels);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cmbOfhotel);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtAge);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNum);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFio);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -340,6 +401,11 @@
         private System.Windows.Forms.Button btnAllClients;
         private System.Windows.Forms.Button btnCreateXml;
         private System.Windows.Forms.Button btnReadXml;
+        private System.Windows.Forms.Button btnAddXmlElement;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnClientsOfAttica;
     }
 }
 
