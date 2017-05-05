@@ -61,9 +61,11 @@
             this.btnClientsOfAttica = new System.Windows.Forms.Button();
             this.btnDelXmlElement = new System.Windows.Forms.Button();
             this.btnEditXmlElement = new System.Windows.Forms.Button();
+            this.btnCityAndCount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -236,7 +238,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(228, 307);
+            this.button4.Location = new System.Drawing.Point(13, 103);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(264, 23);
             this.button4.TabIndex = 20;
@@ -246,7 +248,7 @@
             // 
             // btnAllHotels
             // 
-            this.btnAllHotels.Location = new System.Drawing.Point(228, 337);
+            this.btnAllHotels.Location = new System.Drawing.Point(238, 15);
             this.btnAllHotels.Name = "btnAllHotels";
             this.btnAllHotels.Size = new System.Drawing.Size(75, 23);
             this.btnAllHotels.TabIndex = 21;
@@ -256,7 +258,7 @@
             // 
             // btnAllClients
             // 
-            this.btnAllClients.Location = new System.Drawing.Point(309, 337);
+            this.btnAllClients.Location = new System.Drawing.Point(238, 44);
             this.btnAllClients.Name = "btnAllClients";
             this.btnAllClients.Size = new System.Drawing.Size(75, 23);
             this.btnAllClients.TabIndex = 22;
@@ -286,7 +288,7 @@
             // 
             // btnAddXmlElement
             // 
-            this.btnAddXmlElement.Location = new System.Drawing.Point(12, 99);
+            this.btnAddXmlElement.Location = new System.Drawing.Point(12, 82);
             this.btnAddXmlElement.Name = "btnAddXmlElement";
             this.btnAddXmlElement.Size = new System.Drawing.Size(125, 23);
             this.btnAddXmlElement.TabIndex = 25;
@@ -296,9 +298,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAllClients);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.btnAllHotels);
             this.groupBox1.Location = new System.Drawing.Point(13, 292);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 107);
+            this.groupBox1.Size = new System.Drawing.Size(330, 145);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтры";
@@ -327,22 +332,23 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnCityAndCount);
             this.groupBox3.Controls.Add(this.btnEditXmlElement);
             this.groupBox3.Controls.Add(this.btnDelXmlElement);
             this.groupBox3.Controls.Add(this.btnClientsOfAttica);
             this.groupBox3.Controls.Add(this.btnAddXmlElement);
             this.groupBox3.Controls.Add(this.btnReadXml);
             this.groupBox3.Controls.Add(this.btnCreateXml);
-            this.groupBox3.Location = new System.Drawing.Point(506, 293);
+            this.groupBox3.Location = new System.Drawing.Point(349, 293);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(143, 196);
+            this.groupBox3.Size = new System.Drawing.Size(300, 144);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "XML";
             // 
             // btnClientsOfAttica
             // 
-            this.btnClientsOfAttica.Location = new System.Drawing.Point(12, 70);
+            this.btnClientsOfAttica.Location = new System.Drawing.Point(143, 14);
             this.btnClientsOfAttica.Name = "btnClientsOfAttica";
             this.btnClientsOfAttica.Size = new System.Drawing.Size(125, 23);
             this.btnClientsOfAttica.TabIndex = 26;
@@ -352,7 +358,7 @@
             // 
             // btnDelXmlElement
             // 
-            this.btnDelXmlElement.Location = new System.Drawing.Point(12, 128);
+            this.btnDelXmlElement.Location = new System.Drawing.Point(12, 111);
             this.btnDelXmlElement.Name = "btnDelXmlElement";
             this.btnDelXmlElement.Size = new System.Drawing.Size(125, 23);
             this.btnDelXmlElement.TabIndex = 27;
@@ -362,22 +368,29 @@
             // 
             // btnEditXmlElement
             // 
-            this.btnEditXmlElement.Location = new System.Drawing.Point(12, 157);
+            this.btnEditXmlElement.Location = new System.Drawing.Point(144, 82);
             this.btnEditXmlElement.Name = "btnEditXmlElement";
-            this.btnEditXmlElement.Size = new System.Drawing.Size(125, 23);
+            this.btnEditXmlElement.Size = new System.Drawing.Size(150, 23);
             this.btnEditXmlElement.TabIndex = 28;
             this.btnEditXmlElement.Text = "Редактировать клиента";
             this.btnEditXmlElement.UseVisualStyleBackColor = true;
             this.btnEditXmlElement.Click += new System.EventHandler(this.btnEditXmlElement_Click);
             // 
+            // btnCityAndCount
+            // 
+            this.btnCityAndCount.Location = new System.Drawing.Point(143, 43);
+            this.btnCityAndCount.Name = "btnCityAndCount";
+            this.btnCityAndCount.Size = new System.Drawing.Size(137, 23);
+            this.btnCityAndCount.TabIndex = 29;
+            this.btnCityAndCount.Text = "Города и кол-во отелей в каждом";
+            this.btnCityAndCount.UseVisualStyleBackColor = true;
+            this.btnCityAndCount.Click += new System.EventHandler(this.btnCityAndCount_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 501);
-            this.Controls.Add(this.btnAllClients);
-            this.Controls.Add(this.btnAllHotels);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(661, 442);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -391,6 +404,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -432,6 +446,7 @@
         private System.Windows.Forms.Button btnClientsOfAttica;
         private System.Windows.Forms.Button btnDelXmlElement;
         private System.Windows.Forms.Button btnEditXmlElement;
+        private System.Windows.Forms.Button btnCityAndCount;
     }
 }
 

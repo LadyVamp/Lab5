@@ -263,12 +263,6 @@ namespace Lab5_Hotel
          private void btnReadXml_Click(object sender, EventArgs e)
          {
              //Отображение записей по условию
-             
-             ////1 строка
-             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
-             //MessageBox.Show(xdoc.Element("root").Element("hotel").Element("client").Element("fio").Value);
-             //// /1строка
-
              XDocument xdoc = XDocument.Load("d:\\lab5.xml");
              var xmlList = (from client in xdoc.Descendants("client")
                             select new
@@ -380,14 +374,21 @@ namespace Lab5_Hotel
              MessageBox.Show("Клиент изменен!");
          }
 
+         private void btnCityAndCount_Click(object sender, EventArgs e)
+         {
+             // города и количество отелей
+             XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             var groupByCity = from h in xdoc.Root.Elements()
+                            group h by h.Attribute("hcity").Value into gr
+                            select new { hcity = gr.Key, cnt = gr.Count() };
+             string cityAndCount = "";
+             foreach (var h in groupByCity)
+             {
+                 cityAndCount += "Город: " + h.hcity + ", количество отелей: " + h.cnt + "\n";
+             }
 
-
-        // города и количество отелей в каждом.
-
-
- 
-
-
+             MessageBox.Show(cityAndCount);
+         }
 
     }
 }
