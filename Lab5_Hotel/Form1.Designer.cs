@@ -59,6 +59,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnClientsOfAttica = new System.Windows.Forms.Button();
+            this.btnDelXmlElement = new System.Windows.Forms.Button();
+            this.btnEditXmlElement = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
@@ -288,7 +290,7 @@
             this.btnAddXmlElement.Name = "btnAddXmlElement";
             this.btnAddXmlElement.Size = new System.Drawing.Size(125, 23);
             this.btnAddXmlElement.TabIndex = 25;
-            this.btnAddXmlElement.Text = "Добавить элемент";
+            this.btnAddXmlElement.Text = "Добавить клиента";
             this.btnAddXmlElement.UseVisualStyleBackColor = true;
             this.btnAddXmlElement.Click += new System.EventHandler(this.btnAddXmlElement_Click);
             // 
@@ -325,13 +327,15 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnEditXmlElement);
+            this.groupBox3.Controls.Add(this.btnDelXmlElement);
             this.groupBox3.Controls.Add(this.btnClientsOfAttica);
             this.groupBox3.Controls.Add(this.btnAddXmlElement);
             this.groupBox3.Controls.Add(this.btnReadXml);
             this.groupBox3.Controls.Add(this.btnCreateXml);
             this.groupBox3.Location = new System.Drawing.Point(506, 293);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(143, 144);
+            this.groupBox3.Size = new System.Drawing.Size(143, 196);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "XML";
@@ -346,11 +350,31 @@
             this.btnClientsOfAttica.UseVisualStyleBackColor = true;
             this.btnClientsOfAttica.Click += new System.EventHandler(this.btnClientsOfAttica_Click);
             // 
+            // btnDelXmlElement
+            // 
+            this.btnDelXmlElement.Location = new System.Drawing.Point(12, 128);
+            this.btnDelXmlElement.Name = "btnDelXmlElement";
+            this.btnDelXmlElement.Size = new System.Drawing.Size(125, 23);
+            this.btnDelXmlElement.TabIndex = 27;
+            this.btnDelXmlElement.Text = "Удалить клиента";
+            this.btnDelXmlElement.UseVisualStyleBackColor = true;
+            this.btnDelXmlElement.Click += new System.EventHandler(this.btnDelXmlElement_Click);
+            // 
+            // btnEditXmlElement
+            // 
+            this.btnEditXmlElement.Location = new System.Drawing.Point(12, 157);
+            this.btnEditXmlElement.Name = "btnEditXmlElement";
+            this.btnEditXmlElement.Size = new System.Drawing.Size(125, 23);
+            this.btnEditXmlElement.TabIndex = 28;
+            this.btnEditXmlElement.Text = "Редактировать клиента";
+            this.btnEditXmlElement.UseVisualStyleBackColor = true;
+            this.btnEditXmlElement.Click += new System.EventHandler(this.btnEditXmlElement_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 439);
+            this.ClientSize = new System.Drawing.Size(661, 501);
             this.Controls.Add(this.btnAllClients);
             this.Controls.Add(this.btnAllHotels);
             this.Controls.Add(this.button4);
@@ -406,6 +430,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnClientsOfAttica;
+        private System.Windows.Forms.Button btnDelXmlElement;
+        private System.Windows.Forms.Button btnEditXmlElement;
     }
 }
 

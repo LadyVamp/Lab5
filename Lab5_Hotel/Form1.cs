@@ -302,42 +302,15 @@ namespace Lab5_Hotel
          private void btnAddXmlElement_Click(object sender, EventArgs e)
          {
              //создание элементов и атрибутов
-
-            // <?xml version="1.0"?>
-            //<PLAY>
-            //    <TITLE>The Tragedy of Hamlet, Prince of Denmark</TITLE>
-            //    <!—XML удален для ясности—>
-            //    <PERSONAE>
-            //        <TITLE>Dramatis Personae</TITLE>
-            //        <PERSONA>CLAUDIUS, king of Denmark.</PERSONA>
-            //        <PERSONA>HAMLET, son to the late king, and nephew to the present king.</PERSONA>
-            //    </PERSONAE>
-            //</PLAY>
-
-             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
-             //XElement xe = new XElement("PERSONA", "Bill Evjen, king of Denmark");
-             //xdoc.Element("PLAY").Element("PERSONAE").Add(xe);
-             //var query = from people in xdoc.Descendants("PERSONA")
-             //            select people.Value;
-             //Console.WriteLine("Найдено {0} персонажей", query.Count());
-             //Console.WriteLine();
-             //foreach (var item in query)
-             //{
-             //    Console.WriteLine(item);
-             //}
-
-             //XDocument xdoc = XDocument.Load("d:\\lab5.xml");
-             //XElement xe = new XElement("fio", "Popov P.");
-             //xdoc.Element("hotel").Element("client").Add(xe);
-             //var query = from people in xdoc.Descendants("fio")
-             //            select people.Value;
-             //Console.WriteLine("Найдено {0} персонажей", query.Count());
-             //Console.WriteLine();
-             //foreach (var item in query)
-             //{
-             //    Console.WriteLine(item);
-             //}
-
+             XDocument xDoc = XDocument.Load("d:\\lab5.xml");
+             XNode xNewNode = new XElement("client",
+             new XElement("fio", "Popov P."),
+             new XElement("num", "11"),
+             new XElement("age", "27"),
+             new XElement("country", "Russia"),
+             new XElement("ofhotel", "Electra"));
+             xDoc.Save("d:\\lab5.xml");
+             MessageBox.Show("Новый клиент добавлен!");
          }
 
          private void btnClientsOfAttica_Click(object sender, EventArgs e)
@@ -374,12 +347,39 @@ namespace Lab5_Hotel
              MessageBox.Show("По указанному отелю список его клиентов \n" + "Клиенты отеля Attica: \n" + s);
          }
 
- 
+         private void btnDelXmlElement_Click(object sender, EventArgs e)
+         {
+             //удалить клиента
+             try
+             {
+                 XDocument xDoc = XDocument.Load("d:\\lab5.xml");
+                 xDoc.Root.LastNode.Remove();
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message);
+             }
+             MessageBox.Show("Клиент удален!");
+         }
 
-       
-      
+         private void btnEditXmlElement_Click(object sender, EventArgs e)
+         {
+             // изменение клиента
+             XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+             XElement root = xdoc.Element("root").Element("hotel");
 
-        // добавление, удаление и редактирование клиента отеля,
+             foreach (XElement xe in root.Elements("client").ToList())
+             {                 
+                 if (xe.Element("fio").Value == "Li L.")
+                 {
+                     xe.Element("fio").Value = "Yang Y.";
+                     xe.Element("ofhotel").Value = "Lozenge";
+                 }
+             }
+             xdoc.Save("d:\\lab5.xml");
+             MessageBox.Show("Клиент изменен!");
+         }
+
 
 
         // города и количество отелей в каждом.
