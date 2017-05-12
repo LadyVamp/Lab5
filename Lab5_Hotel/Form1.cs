@@ -44,13 +44,13 @@ namespace Lab5_Hotel
                 cmd.Parameters.AddWithValue("@ofhotel", cmbOfhotel.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Record successfully inserted!");
+                MessageBox.Show("Запись добавлена");
                 DisplayData();
                 ClearData();
             }
             else
             {
-                MessageBox.Show("Fill in all the fields");
+                MessageBox.Show("Заполните поля");
             }
         }
 
@@ -68,14 +68,14 @@ namespace Lab5_Hotel
                 cmd.Parameters.AddWithValue("@country", txtCountry.Text);
                 cmd.Parameters.AddWithValue("@ofhotel", cmbOfhotel.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Record successfully updated!");
+                MessageBox.Show("Запись обновлена");
                 con.Close();
                 DisplayData();
                 ClearData();
             }
             else
             {
-                MessageBox.Show("Please select record to Update");
+                MessageBox.Show("Выберите запись для обновления");
             }
         }
         //Delete
@@ -88,13 +88,13 @@ namespace Lab5_Hotel
                 cmd.Parameters.AddWithValue("@id", ID);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Record successfully deleted!");
+                MessageBox.Show("Запись удалена");
                 DisplayData();
                 ClearData();
             }
             else
             {
-                MessageBox.Show("Please select record to Delete");
+                MessageBox.Show("Выберите запись для удаления");
             }
         }
 
