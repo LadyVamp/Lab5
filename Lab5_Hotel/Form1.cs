@@ -390,5 +390,39 @@ namespace Lab5_Hotel
              MessageBox.Show(cityAndCount);
          }
 
+         private void btnDop_Click(object sender, EventArgs e)
+         {
+             // ФИО и количество отелей
+             XDocument xdoc = XDocument.Load("d:\\lab5.xml");
+
+             var groupByFio = from h in xdoc.Root.Elements()
+                              group h by h.Attribute("fio").Value into gr
+                              select new { fio = gr.Key, cnt = gr.Count() };
+             string fioAndCount = "";
+             foreach (var h in groupByFio)
+             {
+                 fioAndCount += "ФИО: " + h.fio + ", количество отелей: " + h.cnt + "\n";
+             }
+
+             MessageBox.Show(fioAndCount);
+
+
+
+           //IQueryable<Client> countClientQuery =
+           //from client in db.Client
+           //join hotel in db.Hotels on client.ofhotel equals hotel.hname
+           ////where hotel.hcountry == "Greece"
+           //select client;
+
+           //  string s = "";
+           //  foreach (Client clients in countClientQuery)
+           //  {
+           //      s += "\nФИО: " + clients.fio + ", количество: " + 1 ;
+
+           //  }
+           //  MessageBox.Show("Клиенты и кол-во отелей: \n" + s);
+
+         }
+
     }
 }

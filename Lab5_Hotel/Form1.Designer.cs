@@ -58,10 +58,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnClientsOfAttica = new System.Windows.Forms.Button();
-            this.btnDelXmlElement = new System.Windows.Forms.Button();
-            this.btnEditXmlElement = new System.Windows.Forms.Button();
             this.btnCityAndCount = new System.Windows.Forms.Button();
+            this.btnEditXmlElement = new System.Windows.Forms.Button();
+            this.btnDelXmlElement = new System.Windows.Forms.Button();
+            this.btnClientsOfAttica = new System.Windows.Forms.Button();
+            this.btnDop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
@@ -85,7 +86,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 94);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(636, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 166);
             this.dataGridView1.TabIndex = 1;
             // 
             // txtFio
@@ -208,7 +209,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 307);
+            this.button1.Location = new System.Drawing.Point(11, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 23);
             this.button1.TabIndex = 17;
@@ -218,7 +219,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(26, 336);
+            this.button2.Location = new System.Drawing.Point(11, 48);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(196, 23);
             this.button2.TabIndex = 18;
@@ -228,7 +229,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(26, 366);
+            this.button3.Location = new System.Drawing.Point(11, 77);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(196, 23);
             this.button3.TabIndex = 19;
@@ -238,7 +239,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(13, 103);
+            this.button4.Location = new System.Drawing.Point(13, 109);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(264, 23);
             this.button4.TabIndex = 20;
@@ -298,12 +299,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDop);
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnAllClients);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnAllHotels);
-            this.groupBox1.Location = new System.Drawing.Point(13, 292);
+            this.groupBox1.Location = new System.Drawing.Point(13, 266);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 145);
+            this.groupBox1.Size = new System.Drawing.Size(330, 171);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтры";
@@ -339,42 +344,12 @@
             this.groupBox3.Controls.Add(this.btnAddXmlElement);
             this.groupBox3.Controls.Add(this.btnReadXml);
             this.groupBox3.Controls.Add(this.btnCreateXml);
-            this.groupBox3.Location = new System.Drawing.Point(349, 293);
+            this.groupBox3.Location = new System.Drawing.Point(349, 266);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(300, 144);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "XML";
-            // 
-            // btnClientsOfAttica
-            // 
-            this.btnClientsOfAttica.Location = new System.Drawing.Point(143, 14);
-            this.btnClientsOfAttica.Name = "btnClientsOfAttica";
-            this.btnClientsOfAttica.Size = new System.Drawing.Size(125, 23);
-            this.btnClientsOfAttica.TabIndex = 26;
-            this.btnClientsOfAttica.Text = "Клиенты отеля Attica";
-            this.btnClientsOfAttica.UseVisualStyleBackColor = true;
-            this.btnClientsOfAttica.Click += new System.EventHandler(this.btnClientsOfAttica_Click);
-            // 
-            // btnDelXmlElement
-            // 
-            this.btnDelXmlElement.Location = new System.Drawing.Point(12, 111);
-            this.btnDelXmlElement.Name = "btnDelXmlElement";
-            this.btnDelXmlElement.Size = new System.Drawing.Size(125, 23);
-            this.btnDelXmlElement.TabIndex = 27;
-            this.btnDelXmlElement.Text = "Удалить клиента";
-            this.btnDelXmlElement.UseVisualStyleBackColor = true;
-            this.btnDelXmlElement.Click += new System.EventHandler(this.btnDelXmlElement_Click);
-            // 
-            // btnEditXmlElement
-            // 
-            this.btnEditXmlElement.Location = new System.Drawing.Point(144, 82);
-            this.btnEditXmlElement.Name = "btnEditXmlElement";
-            this.btnEditXmlElement.Size = new System.Drawing.Size(150, 23);
-            this.btnEditXmlElement.TabIndex = 28;
-            this.btnEditXmlElement.Text = "Редактировать клиента";
-            this.btnEditXmlElement.UseVisualStyleBackColor = true;
-            this.btnEditXmlElement.Click += new System.EventHandler(this.btnEditXmlElement_Click);
             // 
             // btnCityAndCount
             // 
@@ -386,14 +361,51 @@
             this.btnCityAndCount.UseVisualStyleBackColor = true;
             this.btnCityAndCount.Click += new System.EventHandler(this.btnCityAndCount_Click);
             // 
+            // btnEditXmlElement
+            // 
+            this.btnEditXmlElement.Location = new System.Drawing.Point(144, 82);
+            this.btnEditXmlElement.Name = "btnEditXmlElement";
+            this.btnEditXmlElement.Size = new System.Drawing.Size(150, 23);
+            this.btnEditXmlElement.TabIndex = 28;
+            this.btnEditXmlElement.Text = "Редактировать клиента";
+            this.btnEditXmlElement.UseVisualStyleBackColor = true;
+            this.btnEditXmlElement.Click += new System.EventHandler(this.btnEditXmlElement_Click);
+            // 
+            // btnDelXmlElement
+            // 
+            this.btnDelXmlElement.Location = new System.Drawing.Point(12, 111);
+            this.btnDelXmlElement.Name = "btnDelXmlElement";
+            this.btnDelXmlElement.Size = new System.Drawing.Size(125, 23);
+            this.btnDelXmlElement.TabIndex = 27;
+            this.btnDelXmlElement.Text = "Удалить клиента";
+            this.btnDelXmlElement.UseVisualStyleBackColor = true;
+            this.btnDelXmlElement.Click += new System.EventHandler(this.btnDelXmlElement_Click);
+            // 
+            // btnClientsOfAttica
+            // 
+            this.btnClientsOfAttica.Location = new System.Drawing.Point(143, 14);
+            this.btnClientsOfAttica.Name = "btnClientsOfAttica";
+            this.btnClientsOfAttica.Size = new System.Drawing.Size(125, 23);
+            this.btnClientsOfAttica.TabIndex = 26;
+            this.btnClientsOfAttica.Text = "Клиенты отеля Attica";
+            this.btnClientsOfAttica.UseVisualStyleBackColor = true;
+            this.btnClientsOfAttica.Click += new System.EventHandler(this.btnClientsOfAttica_Click);
+            // 
+            // btnDop
+            // 
+            this.btnDop.Location = new System.Drawing.Point(15, 139);
+            this.btnDop.Name = "btnDop";
+            this.btnDop.Size = new System.Drawing.Size(112, 23);
+            this.btnDop.TabIndex = 23;
+            this.btnDop.Text = "ФИО и кол-во";
+            this.btnDop.UseVisualStyleBackColor = true;
+            this.btnDop.Click += new System.EventHandler(this.btnDop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 442);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(661, 445);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -447,6 +459,7 @@
         private System.Windows.Forms.Button btnDelXmlElement;
         private System.Windows.Forms.Button btnEditXmlElement;
         private System.Windows.Forms.Button btnCityAndCount;
+        private System.Windows.Forms.Button btnDop;
     }
 }
 
