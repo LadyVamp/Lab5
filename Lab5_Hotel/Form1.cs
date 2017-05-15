@@ -392,7 +392,7 @@ namespace Lab5_Hotel
 
          private void btnDop_Click(object sender, EventArgs e)
          {
-             // ФИО и количество отелей
+             // ФИО и количество отелей для XML
              XDocument xdoc = XDocument.Load("d:\\lab5.xml");
 
              var groupByFio = from h in xdoc.Root.Elements()
@@ -406,23 +406,56 @@ namespace Lab5_Hotel
 
              MessageBox.Show(fioAndCount);
 
-
-
-           //IQueryable<Client> countClientQuery =
-           //from client in db.Client
-           //join hotel in db.Hotels on client.ofhotel equals hotel.hname
-           ////where hotel.hcountry == "Greece"
-           //select client;
-
-           //  string s = "";
-           //  foreach (Client clients in countClientQuery)
-           //  {
-           //      s += "\nФИО: " + clients.fio + ", количество: " + 1 ;
-
-           //  }
-           //  MessageBox.Show("Клиенты и кол-во отелей: \n" + s);
-
          }
 
+         private void btnDop2_Click(object sender, EventArgs e)
+         {
+             // ФИО и количество отелей для SQL
+             //SELECT fio, COUNT(ofhotel) 
+             //FROM client
+             //GROUP BY fio
+
+             //v1 с ошибкой
+             //dataGridView1.DataSource = from r in db.Client
+             //                           where r.ofhotel.Count() >= 1
+             //                           select new
+             //                           {
+             //                               r.fio,
+             //                               r.ofhotel.Count()
+             //                           }; 
+
+             ////v2 все 1
+             //IQueryable<Client> fioAndCnt =
+             //  from c in db.Client
+             //  select c;
+             //string s = "";
+             //var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); //1 все
+             //foreach (Client clients in fioAndCnt)
+             //    s += "\nФио: " + clients.fio + ", количество отелей: " + hotelCount;
+             //MessageBox.Show("ФИО и количество отелей: \n" + s);
+
+           
+             ////v3 все 11
+             //var fioQuery =
+             //  from c in db.Client
+             //  select c;
+             //string s = "";
+             //int fioCount = fioQuery.Count();
+             ////var fioCount = db.Client.Where(p => p.fio == "Juliennes J.").Count(); //все 2
+             //foreach (Client clients in fioQuery)
+             //{
+             //    s += "\nФио: " + clients.fio + ", количество отелей: " + fioCount;
+             //}
+             //MessageBox.Show("ФИО и количество отелей: \n" + s);
+
+             //v4 только Иванов
+             IQueryable<Client> fioAndCnt =
+               from c in db.Client
+               select c;
+             var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); //1 все
+             MessageBox.Show("Количество отелей Иванова: \n" + hotelCount);
+
+
+         }
     }
 }

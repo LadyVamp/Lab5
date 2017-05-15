@@ -56,13 +56,14 @@
             this.btnReadXml = new System.Windows.Forms.Button();
             this.btnAddXmlElement = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDop = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCityAndCount = new System.Windows.Forms.Button();
             this.btnEditXmlElement = new System.Windows.Forms.Button();
             this.btnDelXmlElement = new System.Windows.Forms.Button();
             this.btnClientsOfAttica = new System.Windows.Forms.Button();
-            this.btnDop = new System.Windows.Forms.Button();
+            this.btnDop2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lR5DataSet)).BeginInit();
@@ -239,7 +240,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(13, 109);
+            this.button4.Location = new System.Drawing.Point(11, 109);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(264, 23);
             this.button4.TabIndex = 20;
@@ -299,7 +300,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnDop);
+            this.groupBox1.Controls.Add(this.btnDop2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnAllClients);
             this.groupBox1.Controls.Add(this.button2);
@@ -312,6 +313,16 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтры";
+            // 
+            // btnDop
+            // 
+            this.btnDop.Location = new System.Drawing.Point(12, 142);
+            this.btnDop.Name = "btnDop";
+            this.btnDop.Size = new System.Drawing.Size(112, 23);
+            this.btnDop.TabIndex = 23;
+            this.btnDop.Text = "ФИО и кол-во (xml)";
+            this.btnDop.UseVisualStyleBackColor = true;
+            this.btnDop.Click += new System.EventHandler(this.btnDop_Click);
             // 
             // groupBox2
             // 
@@ -338,6 +349,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnCityAndCount);
+            this.groupBox3.Controls.Add(this.btnDop);
             this.groupBox3.Controls.Add(this.btnEditXmlElement);
             this.groupBox3.Controls.Add(this.btnDelXmlElement);
             this.groupBox3.Controls.Add(this.btnClientsOfAttica);
@@ -346,7 +358,7 @@
             this.groupBox3.Controls.Add(this.btnCreateXml);
             this.groupBox3.Location = new System.Drawing.Point(349, 266);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(300, 144);
+            this.groupBox3.Size = new System.Drawing.Size(300, 171);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "XML";
@@ -391,15 +403,15 @@
             this.btnClientsOfAttica.UseVisualStyleBackColor = true;
             this.btnClientsOfAttica.Click += new System.EventHandler(this.btnClientsOfAttica_Click);
             // 
-            // btnDop
+            // btnDop2
             // 
-            this.btnDop.Location = new System.Drawing.Point(15, 139);
-            this.btnDop.Name = "btnDop";
-            this.btnDop.Size = new System.Drawing.Size(112, 23);
-            this.btnDop.TabIndex = 23;
-            this.btnDop.Text = "ФИО и кол-во";
-            this.btnDop.UseVisualStyleBackColor = true;
-            this.btnDop.Click += new System.EventHandler(this.btnDop_Click);
+            this.btnDop2.Location = new System.Drawing.Point(11, 138);
+            this.btnDop2.Name = "btnDop2";
+            this.btnDop2.Size = new System.Drawing.Size(116, 23);
+            this.btnDop2.TabIndex = 24;
+            this.btnDop2.Text = "ФИО и кол-во (sql)";
+            this.btnDop2.UseVisualStyleBackColor = true;
+            this.btnDop2.Click += new System.EventHandler(this.btnDop2_Click);
             // 
             // Form1
             // 
@@ -460,6 +472,7 @@
         private System.Windows.Forms.Button btnEditXmlElement;
         private System.Windows.Forms.Button btnCityAndCount;
         private System.Windows.Forms.Button btnDop;
+        private System.Windows.Forms.Button btnDop2;
     }
 }
 
