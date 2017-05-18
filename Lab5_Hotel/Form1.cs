@@ -470,6 +470,10 @@ namespace Lab5_Hotel
              //                           };
              //var hotelCount = (from p in db.Client select p).Count();
 
+             // ФИО и количество отелей 
+             //SELECT fio, COUNT(ofhotel) 
+             //FROM client
+             //GROUP BY fio
              var hotelCount = (from p in db.Client select new { p.ofhotel }).Count();
              dataGridView1.DataSource = from r in db.Client
                                         group r by r.fio into g
