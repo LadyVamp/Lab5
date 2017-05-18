@@ -467,28 +467,26 @@ namespace Lab5_Hotel
              //                           };
 
              // v5
-             // ФИО и количество отелей для SQL
+             // ФИО и количество отелей 
              //SELECT fio, COUNT(ofhotel) 
              //FROM client
              //GROUP BY fio
+             //группировка
+             //dataGridView1.DataSource = from r in db.Client
+             //                           group r by r.fio into g
+             //                           select new
+             //                           {
+             //                               fio = g.Key,
+             //                               ofhotel = g
+             //                           };
              dataGridView1.DataSource = from r in db.Client
-                                        //where r.ofhotel.Count() >= 1
                                         group r by r.fio into g
                                         select new
                                         {
-                                            //r.fio,
-                                            //r.ofhotel.Count
                                             fio = g.Key,
-                                            ofhotel = g,
-                                            (from p in db.Client select p).Count()
-                                            //ofhotel.Count = g
+                                            ofhotel = g
                                         };
 
-             //var allPersonsCount = (from p in persons select p).Count();
-
-//             var allPersonsCount = from p in persons 
-//group p by p.cityName into g 
-//select new { cityName = g.Key , pers = g };
 
          }
     }
