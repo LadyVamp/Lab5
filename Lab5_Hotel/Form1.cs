@@ -448,13 +448,47 @@ namespace Lab5_Hotel
              //}
              //MessageBox.Show("ФИО и количество отелей: \n" + s);
 
-             //v4 только Иванов
-             IQueryable<Client> fioAndCnt =
-               from c in db.Client
-               select c;
-             var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); //1 все
-             MessageBox.Show("Количество отелей Иванова: \n" + hotelCount);
+             ////v4 Иванов
+             //IQueryable<Client> fioAndCnt =
+             //  from c in db.Client
+             //  select c;
+             //var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); 
+             //MessageBox.Show("Количество отелей Иванова: \n" + hotelCount);
 
+             
+             //dataGridView1.DataSource = from r in db.Hotels
+             //                           where r.Client.Count() >= 2
+             //                           orderby r.hname, r.hcity
+             //                           select new
+             //                           {
+             //                               r.hname,
+             //                               r.hcity,
+             //                               r.Client.Count
+             //                           };
+
+             // v5
+             // ФИО и количество отелей для SQL
+             //SELECT fio, COUNT(ofhotel) 
+             //FROM client
+             //GROUP BY fio
+             dataGridView1.DataSource = from r in db.Client
+                                        //where r.ofhotel.Count() >= 1
+                                        group r by r.fio into g
+                                        select new
+                                        {
+                                            //r.fio,
+                                            //r.ofhotel.Count
+                                            fio = g.Key,
+                                            ofhotel = g,
+                                            (from p in db.Client select p).Count()
+                                            //ofhotel.Count = g
+                                        };
+
+             //var allPersonsCount = (from p in persons select p).Count();
+
+//             var allPersonsCount = from p in persons 
+//group p by p.cityName into g 
+//select new { cityName = g.Key , pers = g };
 
          }
     }
