@@ -410,66 +410,6 @@ namespace Lab5_Hotel
 
          private void btnDop2_Click(object sender, EventArgs e)
          {
-             // ФИО и количество отелей для SQL
-             //SELECT fio, COUNT(ofhotel) 
-             //FROM client
-             //GROUP BY fio
-
-             //v1 с ошибкой
-             //dataGridView1.DataSource = from r in db.Client
-             //                           where r.ofhotel.Count() >= 1
-             //                           select new
-             //                           {
-             //                               r.fio,
-             //                               r.ofhotel.Count()
-             //                           }; 
-
-             ////v2 все 1
-             //IQueryable<Client> fioAndCnt =
-             //  from c in db.Client
-             //  select c;
-             //string s = "";
-             //var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); //1 все
-             //foreach (Client clients in fioAndCnt)
-             //    s += "\nФио: " + clients.fio + ", количество отелей: " + hotelCount;
-             //MessageBox.Show("ФИО и количество отелей: \n" + s);
-
-           
-             ////v3 все 11
-             //var fioQuery =
-             //  from c in db.Client
-             //  select c;
-             //string s = "";
-             //int fioCount = fioQuery.Count();
-             ////var fioCount = db.Client.Where(p => p.fio == "Juliennes J.").Count(); //все 2
-             //foreach (Client clients in fioQuery)
-             //{
-             //    s += "\nФио: " + clients.fio + ", количество отелей: " + fioCount;
-             //}
-             //MessageBox.Show("ФИО и количество отелей: \n" + s);
-
-             ////v4 Иванов
-             //IQueryable<Client> fioAndCnt =
-             //  from c in db.Client
-             //  select c;
-             //var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); 
-             //MessageBox.Show("Количество отелей Иванова: \n" + hotelCount);
-
-             // v5
-             // ФИО и количество отелей 
-             //SELECT fio, COUNT(ofhotel) 
-             //FROM client
-             //GROUP BY fio
-             //группировка
-             //dataGridView1.DataSource = from r in db.Client
-             //                           group r by r.fio into g
-             //                           select new
-             //                           {
-             //                               fio = g.Key,
-             //                               ofhotel = g
-             //                           };
-             //var hotelCount = (from p in db.Client select p).Count();
-
              // ФИО и количество отелей 
              //SELECT fio, COUNT(ofhotel) 
              //FROM client
@@ -480,7 +420,7 @@ namespace Lab5_Hotel
                                         select new
                                         {
                                             fio = g.Key,
-                                            hotelCount
+                                            cnt = g.Count()
                                         };
 
 
