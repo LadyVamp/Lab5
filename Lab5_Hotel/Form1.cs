@@ -455,17 +455,6 @@ namespace Lab5_Hotel
              //var hotelCount = db.Client.Where(p => p.fio == "Ivanov I.").Count(); 
              //MessageBox.Show("Количество отелей Иванова: \n" + hotelCount);
 
-             
-             //dataGridView1.DataSource = from r in db.Hotels
-             //                           where r.Client.Count() >= 2
-             //                           orderby r.hname, r.hcity
-             //                           select new
-             //                           {
-             //                               r.hname,
-             //                               r.hcity,
-             //                               r.Client.Count
-             //                           };
-
              // v5
              // ФИО и количество отелей 
              //SELECT fio, COUNT(ofhotel) 
@@ -479,12 +468,15 @@ namespace Lab5_Hotel
              //                               fio = g.Key,
              //                               ofhotel = g
              //                           };
+             //var hotelCount = (from p in db.Client select p).Count();
+
+             var hotelCount = (from p in db.Client select new { p.ofhotel }).Count();
              dataGridView1.DataSource = from r in db.Client
                                         group r by r.fio into g
                                         select new
                                         {
                                             fio = g.Key,
-                                            ofhotel = g
+                                            hotelCount
                                         };
 
 
