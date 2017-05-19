@@ -98,7 +98,6 @@ namespace Lab5_Hotel
             }
         }
 
-
         //Display Data in DataGridView  
         private void DisplayData()
         {
@@ -136,7 +135,6 @@ namespace Lab5_Hotel
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "lR5DataSet.Client". При необходимости она может быть перемещена или удалена.
             this.clientTableAdapter.Fill(this.lR5DataSet.Client);
-
         }
 
         //  Queries with filter
@@ -150,7 +148,6 @@ namespace Lab5_Hotel
             foreach (Hotels hotels in spainhotels)
             {
                 s += "\nГород: " + hotels.hcity + ", Название: " + hotels.hname  + ", Кол-во звезд: " + hotels.stars;
-
             }
             MessageBox.Show("Отели Испании 4 или 5 звезд: \n" + s);
         }
@@ -170,9 +167,7 @@ namespace Lab5_Hotel
 
             }
             MessageBox.Show("Клиенты греческих отелей: \n" + s);
-        }
-
-     
+        }    
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -186,7 +181,6 @@ namespace Lab5_Hotel
                                            r.hcity,
                                            r.Client.Count
                                        }; 
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -414,7 +408,6 @@ namespace Lab5_Hotel
              //SELECT fio, COUNT(ofhotel) 
              //FROM client
              //GROUP BY fio
-             var hotelCount = (from p in db.Client select new { p.ofhotel }).Count();
              dataGridView1.DataSource = from r in db.Client
                                         group r by r.fio into g
                                         select new
@@ -422,7 +415,15 @@ namespace Lab5_Hotel
                                             fio = g.Key,
                                             cnt = g.Count()
                                         };
-
+             // v2 cyberforum
+             //dataGridView1.DataSource = from r in db.Client
+             //                           group r.ofhotel by r.fio into g
+             //                           where g.Count() >= 2
+             //                           select new
+             //                           {
+             //                               fio = g.Key,
+             //                               cnt = g.Count()
+             //                           };
 
          }
     }
